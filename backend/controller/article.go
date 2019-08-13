@@ -51,6 +51,12 @@ func (a *Article) Show(w http.ResponseWriter, r *http.Request) (int, interface{}
 		return http.StatusInternalServerError, nil, err
 	}
 
+	comments, err := repository.GetArticleComments(a.dbx, aid)
+	if err != nil {
+		return http.StatusInternalServerError, nil, err
+	}
+	article.Comments = &comments
+
 	return http.StatusCreated, article, nil
 }
 
