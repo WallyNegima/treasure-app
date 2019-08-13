@@ -5,6 +5,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/voyagegroup/treasure-app/dbutil"
 	"github.com/voyagegroup/treasure-app/model"
+	"github.com/voyagegroup/treasure-app/repository"
 )
 
 type Comment struct {
@@ -18,7 +19,20 @@ func NewArticleCommentService(db *sqlx.DB) *Comment {
 func (c *Comment) Create(newComment *model.ArticleComment) (int64, error) {
 	var createdId int64
 	if err := dbutil.TXHandler(c.db, func(tx *sqlx.Tx) error {
-		return nil
+		result, err := repository.CreateArticleComment(tx, newComment)
+		if err != nil {
+			return err
+		}
+
+		if err := tx.Commit(); err != nil {
+			return err
+		}
+		id, err := result.LastInsertId()
+		if err != nil {
+			return err
+		}
+		createdId = id
+		return err
 	}); err != nil {
 		return 0, errors.Wrap(err, "failed article comment insert transaction")
 	}
