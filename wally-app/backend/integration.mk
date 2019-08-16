@@ -9,11 +9,17 @@ ARTICLE_ID:=1
 ARTICLE_TITLE:=title
 ARTICLE_BODY:=body
 
+WORK_LOG_ID:=1
+COUNT:=3
+
 create-token:
 	go run ./cmd/customtoken/main.go $(UID) $(TOKEN_FILE)
 
 req-work-logs-post:
 	curl -v -XPOST -H "Authorization: Bearer $(shell cat ./$(TOKEN_FILE))" $(HOST):$(PORT)/work_logs
+
+req-work-details-post:
+	curl -v -XPOST -H "Authorization: Bearer $(shell cat ./$(TOKEN_FILE))" $(HOST):$(PORT)/work_logs/$(WORK_LOG_ID)/work_details -d '{"count": $(COUNT)}'
 
 req-articles:
 	curl -v $(HOST):$(PORT)/articles
