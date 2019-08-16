@@ -3,7 +3,7 @@ import { Container, Log } from "./styles";
 const Header = () => {
   return (
     <Container>
-      <Log>筋トレやろうぜ</Log>
+      <Log>懸垂やろうぜ</Log>
     </Container>
   );
 };
