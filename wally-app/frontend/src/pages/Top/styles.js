@@ -19,6 +19,6 @@ export const Title = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  margin: 0 auto;
+  margin: 32px auto;
   text-align: center;
 `;

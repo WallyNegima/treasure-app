@@ -14,3 +14,8 @@ export const Count = styled.div`
   font-weight: bold;
   margin: 24px auto;
 `;
+
+export const ButtonWrapper = styled.div`
+  margin: 32px auto;
+  text-align: center;
+`;
