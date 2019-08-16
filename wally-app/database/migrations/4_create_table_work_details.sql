@@ -1,0 +1,13 @@
+-- +goose Up
+CREATE TABLE work_details (
+  id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  work_log_id int(10) UNSIGNED NOT NULL,
+  count int(10) NOT NULL,
+  ctime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  utime TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY(work_log_id) REFERENCES work_logs(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- +goose Down
+DROP TABLE work_details;
