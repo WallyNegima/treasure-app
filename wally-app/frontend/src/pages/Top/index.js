@@ -1,7 +1,9 @@
 import React from "react";
 
+import { Container } from "./styles";
+
 const Top = () => {
-  return <div>あああ</div>;
+  return <Container>あああ</Container>;
 };
 
 export default Top;
