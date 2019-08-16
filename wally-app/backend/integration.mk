@@ -12,6 +12,9 @@ ARTICLE_BODY:=body
 create-token:
 	go run ./cmd/customtoken/main.go $(UID) $(TOKEN_FILE)
 
+req-work-logs-post:
+	curl -v -XPOST -H "Authorization: Bearer $(shell cat ./$(TOKEN_FILE))" $(HOST):$(PORT)/work_logs
+
 req-articles:
 	curl -v $(HOST):$(PORT)/articles
 
