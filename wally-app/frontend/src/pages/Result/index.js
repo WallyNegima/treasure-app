@@ -4,7 +4,7 @@ import { Container, TitleWrapper, Title, ButtonWrapper } from "./styles";
 import useEnhance from "./enhance";
 
 const Top = () => {
-  const { goToTopPage, count } = useEnhance();
+  const { goToTopPage, shareByTwitter, count } = useEnhance();
   return (
     <Container>
       <TitleWrapper>
@@ -15,7 +15,7 @@ const Top = () => {
         </Title>
       </TitleWrapper>
       <ButtonWrapper>
-        <Button>Tweetする！！</Button>
+        <Button onClickHandler={shareByTwitter}>Tweetする！！</Button>
       </ButtonWrapper>
       <ButtonWrapper>
         <Button onClickHandler={goToTopPage}>TOPに戻る</Button>
