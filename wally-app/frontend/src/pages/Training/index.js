@@ -1,11 +1,13 @@
 import React from "react";
 import Button from "components/commons/Button";
+import Video from "./Video";
 import { Container, Count, ButtonWrapper } from "./styles";
 import useEnhance from "./enhance";
 const Top = () => {
   const { postWorkDetail, count, updateCount } = useEnhance();
   return (
     <Container>
+      <Video />
       <Count>{count}回</Count>
       <ButtonWrapper>
         <Button onClickHandler={() => updateCount(count + 1)}>
