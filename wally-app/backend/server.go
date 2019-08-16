@@ -63,7 +63,7 @@ func (s *Server) Route() *mux.Router {
 	authMiddleware := middleware.NewAuth(s.authClient, s.db)
 	corsMiddleware := cors.New(cors.Options{
 		AllowedOrigins: []string{"*"},
-		AllowedHeaders: []string{"Authorization"},
+		AllowedHeaders: []string{"Authorization", "Content-Type"},
 		AllowedMethods: []string{
 			http.MethodHead,
 			http.MethodGet,
@@ -71,6 +71,7 @@ func (s *Server) Route() *mux.Router {
 			http.MethodPut,
 			http.MethodPatch,
 			http.MethodDelete,
+			http.MethodOptions,
 		},
 	})
 
