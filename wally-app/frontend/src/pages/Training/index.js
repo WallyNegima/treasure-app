@@ -4,16 +4,16 @@ import Video from "./Video";
 import { Container, Count, ButtonWrapper } from "./styles";
 import useEnhance from "./enhance";
 const Top = () => {
-  const { postWorkDetail, count, updateCount } = useEnhance();
+  const { postWorkDetail, count } = useEnhance();
   return (
     <Container>
       <Video />
       <Count>{count}回</Count>
-      <ButtonWrapper>
+      {/* <ButtonWrapper>
         <Button onClickHandler={() => updateCount(count + 1)}>
           懸垂インクリメント！
         </Button>
-      </ButtonWrapper>
+      </ButtonWrapper> */}
       <ButtonWrapper>
         <Button onClickHandler={() => postWorkDetail(count)}>
           限界突破！懸垂を終了する

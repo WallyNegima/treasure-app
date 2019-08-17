@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useReactRouter from "use-react-router";
 import { overwriteCount } from "ducks";
@@ -9,6 +8,8 @@ const useEnhance = () => {
   const dispatch = useDispatch();
   const workLogIdSelector = state => state.workLogId;
   const workLogId = useSelector(workLogIdSelector);
+  const countSelector = state => state.count;
+  const count = useSelector(countSelector);
 
   const postWorkDetail = count => {
     api
@@ -24,11 +25,9 @@ const useEnhance = () => {
       });
   };
 
-  const [count, updateCount] = useState(0);
   return {
     postWorkDetail,
     count,
-    updateCount,
     workLogId
   };
 };

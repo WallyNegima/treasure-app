@@ -5,9 +5,14 @@ const defaultState = {
   count: 0
 };
 
-export const { overwriteWorkLogId, overwriteCount } = createActions({
+export const {
+  overwriteWorkLogId,
+  overwriteCount,
+  incrementCount
+} = createActions({
   OVERWRITE_WORK_LOG_ID: workLogId => ({ workLogId }),
-  OVERWRITE_COUNT: count => ({ count })
+  OVERWRITE_COUNT: count => ({ count }),
+  INCREMENT_COUNT: () => {}
 });
 
 export default handleActions(
@@ -17,6 +22,10 @@ export default handleActions(
     },
     [overwriteCount]: (state, { payload: { count } }) => {
       return { ...state, count };
+    },
+    [incrementCount]: (state, {}) => {
+      console.debug(state.count);
+      return { ...state, count: state.count + 1 };
     }
   },
   defaultState
