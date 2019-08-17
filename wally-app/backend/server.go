@@ -97,6 +97,8 @@ func (s *Server) Route() *mux.Router {
 
 	workLogController := controller.NewWorkLog(s.db)
 	r.Methods(http.MethodPost).Path("/work_logs").Handler(commonChain.Then(AppHandler{workLogController.Create}))
+	r.Methods(http.MethodGet).Path("/work_logs").Handler(commonChain.Then(AppHandler{workLogController.Index}))
+
 	workDetailController := controller.NewWorkDetail(s.db)
 	r.Methods(http.MethodPost).Path("/work_logs/{id}/work_details").Handler(commonChain.Then(AppHandler{workDetailController.Create}))
 

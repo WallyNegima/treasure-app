@@ -3,6 +3,9 @@ package controller
 import (
 	"github.com/jmoiron/sqlx"
 	"github.com/voyagegroup/treasure-app/model"
+	"github.com/voyagegroup/treasure-app/repository"
+
+	//"github.com/voyagegroup/treasure-app/repository"
 	"github.com/voyagegroup/treasure-app/service"
 	"net/http"
 )
@@ -13,6 +16,17 @@ type WorkLog struct {
 
 func NewWorkLog(db *sqlx.DB) *WorkLog {
 	return &WorkLog{db}
+}
+
+func (wl *WorkLog) Index(w http.ResponseWriter, r *http.Request) (int, interface{}, error) {
+	// TODO: userIdを自動取得！
+	userId := 1
+	workLogs, err := repository.MyWorkLogs(wl.db, userId)
+
+	if err != nil {
+		return http.StatusInternalServerError, nil, err
+	}
+	return http.StatusOK, workLogs, nil
 }
 
 func (wl *WorkLog) Create(w http.ResponseWriter, r *http.Request) (int, interface{}, error) {

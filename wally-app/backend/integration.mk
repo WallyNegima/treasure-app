@@ -21,6 +21,9 @@ req-work-logs-post:
 req-work-details-post:
 	curl -v -XPOST -H "Authorization: Bearer $(shell cat ./$(TOKEN_FILE))" $(HOST):$(PORT)/work_logs/$(WORK_LOG_ID)/work_details -d '{"count": $(COUNT)}'
 
+req-work-logs:
+    curl -v $(HOST):$(PORT)/work_logs
+
 req-articles:
 	curl -v $(HOST):$(PORT)/articles
 
