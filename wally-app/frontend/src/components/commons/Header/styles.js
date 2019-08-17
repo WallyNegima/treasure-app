@@ -14,6 +14,7 @@ export const Log = styled.div`
   line-height: 24px;
   font-weight: 600;
   margin-right: 16px;
+  cursor: pointer;
 `;
 
 export const Menu = styled.div`

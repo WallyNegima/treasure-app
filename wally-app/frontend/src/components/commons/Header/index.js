@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <Container>
-      <Log>懸垂やろうぜ</Log>
+      <Log onClick={() => history.push("/")}>懸垂やろうぜ</Log>
       <Menu onClick={() => history.push("/mypage")}>マイページ</Menu>
     </Container>
   );
