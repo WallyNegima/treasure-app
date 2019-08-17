@@ -1,0 +1,12 @@
+version: "3"
+services:
+  nginx:
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"
+    tty: true
+    stdin_open: true
+    privileged: true
+    volumes:
+      - ../frontend/public/:/var/www/html
