@@ -15,7 +15,9 @@ const Top = () => {
         </Title>
       </TitleWrapper>
       <ButtonWrapper>
-        <Button onClickHandler={shareByTwitter}>Tweetする！！</Button>
+        <Button twitter onClickHandler={shareByTwitter}>
+          Tweetする！！
+        </Button>
       </ButtonWrapper>
       <ButtonWrapper>
         <Button onClickHandler={goToTopPage}>TOPに戻る</Button>

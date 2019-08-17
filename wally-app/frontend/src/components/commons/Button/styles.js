@@ -6,4 +6,5 @@ export const ButtonContainer = styled.button`
   border-radius: 34px;
   font-size: 16px;
   font-weight: 600;
+  background: ${props => (props.twitter ? "#1DA1F2" : "lightgreen")};
 `;
