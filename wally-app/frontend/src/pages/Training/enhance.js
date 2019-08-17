@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useReactRouter from "use-react-router";
 import { overwriteCount } from "ducks";
@@ -24,6 +25,12 @@ const useEnhance = () => {
         console.debug(e);
       });
   };
+
+  useEffect(() => {
+    if (workLogId === null) {
+      history.push("/");
+    }
+  });
 
   return {
     postWorkDetail,

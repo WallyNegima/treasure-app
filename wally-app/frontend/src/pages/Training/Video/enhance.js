@@ -34,8 +34,8 @@ const useEnhance = () => {
   const autoCount = async () => {
     const video = (window.video = document.querySelector("video"));
     const canvas = (window.canvas = document.querySelector("canvas"));
-    canvas.width = 480;
-    canvas.height = 360;
+    canvas.width = 240;
+    canvas.height = 180;
     canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
 
     detectFaces(makeblob(canvas.toDataURL("image/png"))).then(faceNum => {
@@ -52,8 +52,8 @@ const useEnhance = () => {
     }
     const video = (window.video = document.querySelector("video"));
     const canvas = (window.canvas = document.querySelector("canvas"));
-    canvas.width = 480;
-    canvas.height = 360;
+    canvas.width = 240;
+    canvas.height = 180;
 
     const constraints = {
       audio: false,

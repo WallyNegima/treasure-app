@@ -5,7 +5,7 @@ const Video = () => {
   useEnhance();
   return (
     <Fragment>
-      <video playsInline autoPlay />
+      <video style={{ width: "312px" }} playsInline autoPlay />
       {/* <button onClick={getCanvas}>撮影</button> */}
       <canvas style={{ display: "none" }} />
       {/* <button onClick={increment}>でてくと</button> */}
