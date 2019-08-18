@@ -28,6 +28,10 @@ req-articles-update:
 req-articles-delete:
 	curl -v -XDELETE -H "Authorization: Bearer $(shell cat ./$(TOKEN_FILE))" $(HOST):$(PORT)/articles/$(ARTICLE_ID)
 
+#
+req-comments-post:
+	curl -XPOST -v -H "Authorization: Bearer $(shell cat ./$(TOKEN_FILE))" $(HOST):$(PORT)/articles/1/comments -d '{"body": "fff"}'
+#'{"article_id":1,"body": "fff"}'
 req-public:
 	curl -v $(HOST):$(PORT)/public
 
