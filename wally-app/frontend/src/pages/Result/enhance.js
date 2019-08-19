@@ -1,5 +1,9 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import useReactRouter from "use-react-router";
 import { useSelector } from "react-redux";
+import { overwriteCount, overwriteWorkLogId } from "ducks";
+
 const openShareWindow = url => {
   // windowNameは使用しないのでnullを指定する.
   return window.open(
@@ -20,6 +24,7 @@ const useEnhance = () => {
   const { history } = useReactRouter();
   const countSelector = state => state.count;
   const count = useSelector(countSelector);
+  const dispatch = useDispatch();
 
   const goToTopPage = () => history.push("/");
 
@@ -30,6 +35,15 @@ const useEnhance = () => {
       )}&hashtags=voyage_intern, オフィスで筋トレ`
     );
   };
+
+  const resetCount = () => {
+    dispatch(overwriteCount(0));
+    dispatch(overwriteWorkLogId(null));
+  };
+
+  useEffect(() => {
+    return () => resetCount();
+  }, []);
 
   return {
     goToTopPage,
